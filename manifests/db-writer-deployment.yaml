@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: db-writer
+  labels:
+    app: db-writer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: db-writer
+  template:
+    metadata:
+      labels:
+        app: db-writer
+    spec:
+      containers:
+        - name: db-writer
+          image: siddhesh2263/db-writer:v1
+          env:
+            - name: DB_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: pg-secret
+                  key: DB_NAME
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: pg-secret
+                  key: DB_USER
+            - name: DB_PASS
+              valueFrom:
+                secretKeyRef:
+                  name: pg-secret
+                  key: DB_PASS
+            - name: DB_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: pg-secret
+                  key: DB_HOST
+            - name: DB_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: pg-secret
+                  key: DB_PORT
+            - name: KAFKA_BOOTSTRAP_SERVERS
+              value: "kafka-service:9092"
