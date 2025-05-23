@@ -17,3 +17,7 @@
 ![alt text](https://github.com/siddhesh2263/wildfire-monitoring-system/blob/main/assets/kafdrop-raw-data.png?raw=true)
 
 ![alt text](https://github.com/siddhesh2263/wildfire-monitoring-system/blob/main/assets/deployments.png?raw=true)
+
+![alt text](https://github.com/siddhesh2263/wildfire-monitoring-system/blob/main/assets/kafdrop-messages.png?raw=true)
+
+![alt text](https://github.com/siddhesh2263/wildfire-monitoring-system/blob/main/assets/kubectl-pods-wide.png?raw=true)
