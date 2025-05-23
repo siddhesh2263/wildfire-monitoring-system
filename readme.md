@@ -4,9 +4,11 @@
 
 ### Project Overview
 
-* In this project, I designed and deployed a real-time anomaly detection system that simulates environmental hazard reporting. The system ingests continuous data streams (simulated via Locust), performs rule-based anomaly detection, stores incoming and processed data in PostgreSQL, and renders live geospatial alerts on an interactive Leaflet map. Every component is containerized and deployed on a lightweight Kubernetes distribution (K3s), with Kafka acting as the central message broker. The goal was to build a fully functioning pipeline from data ingestion to real-time visualization
+In this project, I designed and deployed a real-time anomaly detection system that simulates environmental hazard reporting. The system ingests continuous data streams (simulated via Locust), performs rule-based anomaly detection, stores incoming and processed data in PostgreSQL, and renders live geospatial alerts on an interactive Leaflet map. Every component is containerized and deployed on a lightweight Kubernetes distribution (K3s), with Kafka acting as the central message broker. The goal was to build a fully functioning pipeline from data ingestion to real-time visualization.
 
 ![alt text](https://github.com/siddhesh2263/wildfire-monitoring-system/blob/main/assets/map-main-marker.png?raw=true)
+
+![alt text](https://github.com/siddhesh2263/wildfire-monitoring-system/blob/main/assets/uml-rough.png?raw=true)
 
 ![alt text](https://github.com/siddhesh2263/wildfire-monitoring-system/blob/main/assets/nodes-all.png?raw=true)
 
