@@ -1,8 +1,6 @@
 # Designing a Real-Time Anomaly Detection System with Kafka, Flask, and K3s
-##### Date: 5/24/2025
-##### Author: Siddhesh Kocharekar
 
-## Table of Contents
+## 📑 Table of Contents
 
 1. [Project Overview](#project-overview)
 2. [What is K3s? A Lightweight Kubernetes Engine for Edge and Dev Clusters](#what-is-k3s-a-lightweight-kubernetes-engine-for-edge-and-dev-clusters)
