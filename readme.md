@@ -84,7 +84,7 @@ Each microservice in the system was packaged in its own Docker container with a 
 
 To validate the ingestion pipeline and measure system performance under realistic load, I used Locust, an open-source load testing framework that simulates multiple concurrent users sending HTTP requests. Locust allowed me to easily generate a sustained load of `200–300` requests per second to the API Gateway, replicating the real-world scenario of sensors or edge devices continuously reporting environmental data.
 
-![alt text](https://github.com/siddhesh2263/wildfire-monitoring-system/blob/main/assets/locust-main.png?raw=true)
+![alt text](https://github.com/siddhesh2263/wildfire-monitoring-system/blob/main/assets/locust-96.png?raw=true)
 
 ![alt text](https://github.com/siddhesh2263/wildfire-monitoring-system/blob/main/assets/locust-chart.png?raw=true)
 
