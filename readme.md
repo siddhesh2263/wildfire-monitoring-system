@@ -73,3 +73,15 @@ To validate the ingestion pipeline and measure system performance under realisti
 ![alt text](https://github.com/siddhesh2263/wildfire-monitoring-system/blob/main/assets/locust-main.png?raw=true)
 
 ![alt text](https://github.com/siddhesh2263/wildfire-monitoring-system/blob/main/assets/locust-chart.png?raw=true)
+
+<br>
+
+### Where the System Falls Short: Risks and Limitations
+
+While the system demonstrates real-time data ingestion and visualization, it has major reliability gaps. Kafka is single-node and unreplicated, risking total data loss on failure. K3s uses SQLite, unsuitable for HA workloads, making control plane failure catastrophic. No resource limits risk CPU throttling, and consumers lack retry or dead-letter queues, causing permanent data loss if a write or anomaly detection fails. The UI’s in-memory buffer can’t recover from restarts, leading to silent data gaps. With no observability tools like Prometheus or logs, these issues remain hidden. No authentication or TLS, plus no chaos testing, leaves the system unproven in production.
+
+<br>
+
+### Next Steps for System Improvement and Production Readiness
+
+To improve the system’s reliability and prepare it for production, several key upgrades should be implemented. Replace the single-node Kafka deployment with a multi-broker, replicated cluster using Strimzi or Bitnami Helm charts to ensure durability and failover. Upgrade the K3s control plane to an HA configuration with embedded etcd, providing consistent API availability even if a node fails. Enhance consumer resilience by adding retry logic and dead-letter queues to the Database Writer and Anomaly Detection services, ensuring data integrity during transient failures. For UI reliability, replace in-memory buffers with persistent caching in Redis or database queries to maintain live visualization after restarts. Implement Prometheus and Grafana to collect metrics on request latency, Kafka lag, and database performance, enabling proactive monitoring and alerting. Define resource requests and limits for pods and enable autoscaling for key services. Finally, introduce TLS encryption for Kafka and PostgreSQL and perform chaos testing to validate the system’s resilience and real-world stability.
