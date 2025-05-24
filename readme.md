@@ -2,6 +2,22 @@
 
 # Designing a Real-Time Anomaly Detection System with Kafka, Flask, and K3s
 
+## 📑 Table of Contents
+
+1. [Introduction](#introduction)
+2. [What is K3s? A Lightweight Kubernetes Engine for Edge and Dev Clusters](#what-is-k3s-a-lightweight-kubernetes-engine-for-edge-and-dev-clusters)
+3. [Ingestion with API Gateway](#ingestion-with-api-gateway)
+4. [Kafka Messaging](#kafka-messaging)
+5. [PostgreSQL Data Storage](#postgresql-data-storage)
+6. [Rule-Based Anomaly Detection](#rule-based-anomaly-detection)
+7. [Real-Time UI with Leaflet + Flask](#real-time-ui-with-leaflet--flask)
+8. [Dockerization and K3s Deployment](#dockerization-and-k3s-deployment)
+9. [Load Testing with Locust](#load-testing-with-locust)
+10. [Where the System Falls Short: Risks and Limitations](#where-the-system-falls-short-risks-and-limitations)
+11. [Next Steps for System Improvement and Production Readiness](#next-steps-for-system-improvement-and-production-readiness)
+
+<br>
+
 ### Project Overview
 
 In this project, I designed and deployed a real-time anomaly detection system that simulates environmental hazard reporting. The system ingests continuous data streams (simulated via Locust), performs rule-based anomaly detection, stores incoming and processed data in PostgreSQL, and renders live geospatial alerts on an interactive Leaflet map. Every component is containerized and deployed on a lightweight Kubernetes distribution (K3s), with Kafka acting as the central message broker. The goal was to build a fully functioning pipeline from data ingestion to real-time visualization.
