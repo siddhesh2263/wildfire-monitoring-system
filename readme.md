@@ -92,7 +92,23 @@ To validate the ingestion pipeline and measure system performance under realisti
 
 ### Where the System Falls Short: Risks and Limitations
 
-While the system demonstrates real-time data ingestion and visualization, it has major reliability gaps. Kafka is single-node and unreplicated, risking total data loss on failure. K3s uses SQLite, unsuitable for HA workloads, making control plane failure catastrophic. No resource limits risk CPU throttling, and consumers lack retry or dead-letter queues, causing permanent data loss if a write or anomaly detection fails. The UI’s in-memory buffer can’t recover from restarts, leading to silent data gaps. With no observability tools like Prometheus or logs, these issues remain hidden. No authentication or TLS, plus no chaos testing, leaves the system unproven in production.
+Although the system demonstrates real-time data ingestion and visualization, it has several critical weaknesses that must be addressed to ensure reliability and scalability in production environments. These issues span from architectural gaps to security and observability concerns:
+
+* Kafka is currently deployed as a single-node instance without replication, creating a risk of total data loss if the broker crashes or the node is lost.
+
+* K3s uses SQLite as its control plane data store, which is not designed for high availability (HA) workloads, making the control plane itself a single point of failure.
+
+* There are no resource limits or requests defined for pods, which can result in CPU throttling and performance degradation under load.
+
+* The Database Writer and Anomaly Detection services lack retry logic and dead-letter queues, causing permanent data loss if a message processing step fails.
+
+* The UI service relies on an in-memory buffer to hold data, but this approach loses data if the pod restarts or crashes, leading to gaps in the visualization layer.
+
+* The system lacks observability tools like Prometheus metrics, Grafana dashboards, or log aggregation, making it hard to detect issues or monitor performance.
+
+* Security is also a concern, as Kafka and PostgreSQL lack authentication and TLS encryption, exposing them to unauthorized internal access.
+
+* Finally, the system has not undergone chaos testing to validate its resilience and ensure stability under real-world failure scenarios.
 
 <br>
 
