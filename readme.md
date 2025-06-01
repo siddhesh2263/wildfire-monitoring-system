@@ -98,4 +98,18 @@ While the system demonstrates real-time data ingestion and visualization, it has
 
 ### Next Steps for System Improvement and Production Readiness
 
-To improve the system’s reliability and prepare it for production, several key upgrades should be implemented. Replace the single-node Kafka deployment with a multi-broker, replicated cluster using Strimzi or Bitnami Helm charts to ensure durability and failover. Upgrade the K3s control plane to an HA configuration with embedded etcd, providing consistent API availability even if a node fails. Enhance consumer resilience by adding retry logic and dead-letter queues to the Database Writer and Anomaly Detection services, ensuring data integrity during transient failures. For UI reliability, replace in-memory buffers with persistent caching in Redis or database queries to maintain live visualization after restarts. Implement Prometheus and Grafana to collect metrics on request latency, Kafka lag, and database performance, enabling proactive monitoring and alerting. Define resource requests and limits for pods and enable autoscaling for key services. Finally, introduce TLS encryption for Kafka and PostgreSQL and perform chaos testing to validate the system’s resilience and real-world stability.
+While the current system effectively demonstrates real-time data ingestion and visualization, moving it towards production readiness requires addressing key areas of reliability, scalability, and security. The following improvements outline how to strengthen the architecture and ensure the system can handle real-world operational demands:
+
+* Replace the single-node Kafka deployment with a multi-broker, replicated cluster using Strimzi or Bitnami Helm charts to ensure durability and failover.
+
+* Upgrade the K3s control plane to an HA configuration with embedded etcd, providing consistent API availability even if a node fails.
+
+* Enhance consumer resilience by adding retry logic and dead-letter queues to the Database Writer and Anomaly Detection services to ensure data integrity during transient failures.
+
+* For UI reliability, replace in-memory buffers with persistent caching in Redis or use database queries to maintain live visualization after restarts.
+
+* Implement Prometheus and Grafana to collect metrics on request latency, Kafka lag, and database performance, enabling proactive monitoring and alerting.
+
+* Define resource requests and limits for pods and enable autoscaling for key services to prevent resource contention and ensure scalability.
+
+* Finally, introduce TLS encryption for Kafka and PostgreSQL and perform chaos testing to validate the system’s resilience and real-world stability.
