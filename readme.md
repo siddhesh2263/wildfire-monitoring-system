@@ -1,6 +1,6 @@
 # Designing a Real-Time Anomaly Detection System with Kafka, Flask, and K3s
 
-## 📑 Table of Contents
+## Table of Contents
 
 1. [Project Overview](#project-overview)
 2. [What is K3s? A Lightweight Kubernetes Engine for Edge and Dev Clusters](#what-is-k3s-a-lightweight-kubernetes-engine-for-edge-and-dev-clusters)
@@ -56,7 +56,7 @@ A dedicated Database Writer service consumes from the `raw-data` topic and write
 
 ### Rule-Based Anomaly Detection
 
-An anomaly detection service consumes messages from the `raw-data` topic and applies rule-based logic to assign an intensity label—low, medium, or high. For example, if the temperature exceeds 40°C and humidity drops below 20%, the message is tagged as a high-risk anomaly. Additional rules consider vegetation density, wind speed, and air quality index. The service adds a confidence_score and produces the data into the `anomaly-data` topic. This service is stateless, horizontally scalable, and containerized like all others.
+An anomaly detection service consumes messages from the `raw-data` topic and applies rule-based logic to assign an intensity label - low, medium, or high. For example, if the temperature exceeds 40°C and humidity drops below 20%, the message is tagged as a high-risk anomaly. Additional rules consider vegetation density, wind speed, and air quality index. The service adds a confidence_score and produces the data into the `anomaly-data` topic. This service is stateless, horizontally scalable, and containerized like all others.
 
 <br>
 
