@@ -3,7 +3,7 @@
 ## Table of Contents
 
 - [Project Overview](#project-overview)
-- [What is K3s? A Lightweight Kubernetes Engine for Edge and Dev Clusters](#what-is-k3s-a-lightweight-kubernetes-engine-for-edge-and-dev-clusters)
+- [K3s](#k3s)
 - [Ingestion with API Gateway](#ingestion-with-api-gateway)
 - [Kafka Messaging](#kafka-messaging)
 - [PostgreSQL Data Storage](#postgresql-data-storage)
@@ -24,7 +24,7 @@ In this project, I designed and deployed a real-time anomaly detection system th
 
 <br>
 
-### What is K3s? A Lightweight Kubernetes Engine for Edge and Dev Clusters
+### K3s
 
 K3s is a lightweight, fully compliant Kubernetes distribution developed by Rancher. It’s optimized for small footprint environments like edge devices, IoT gateways, and development clusters, and it reduces complexity by stripping out unnecessary add-ons and using a single binary for easier installation. Despite its reduced size, K3s still offers the essential features of Kubernetes, such as automated deployment, service discovery, scaling, and load balancing, making it a perfect choice for lightweight, container-based applications like this real-time anomaly detection system.
 
